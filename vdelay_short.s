@@ -22,6 +22,10 @@ VDELAY_MINIMUM = 27
 .macro BRPAGE instruction_, label_
     instruction_ label_
     .assert >(label_) = >*, error, "Page crossed!"
+    ; .assert - проверка условия (утверждения)
+    ; >(label_) - старший байт адреса метки label_
+    ; = >* - проверка равенства старшего байта адреса метки и текущей адресной позиции
+    ; error, "Page crossed!" - если условие не выполняется, возникает ошибка с сообщением "Page crossed!" (страница пересечена)
 .endmacro
 
 .align 32
